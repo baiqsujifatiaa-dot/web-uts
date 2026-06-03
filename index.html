@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Baiq Suji Fatia Sari</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Efek scroll halus dan set target offset agar pas di bawah navbar */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 95px; 
+        }
+
+        /* Variabel Warna Tema Baby Blue Seragam */
+        :root {
+            --baby-blue: #e6f0fa;       
+            --royal-blue: #0d6efd;      
+            --text-dark: #161e2c;       
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--baby-blue); 
+            color: var(--text-dark);
+            padding: 0 15px; 
+        }
+
+        /* 1. BINGKAI DI DALAM BINGKAI PADA NAVBAR UTAMA */
+        .custom-navbar {
+            background-color: #0f172a !important; 
+            border: 3px solid var(--royal-blue); 
+            box-shadow: 
+                inset 0 0 0 3px #0f172a,         
+                inset 0 0 0 5px var(--neon-blue),    
+                0 4px 15px rgba(13, 110, 253, 0.2);  
+            border-radius: 0 0 14px 14px;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        /* BINGKAI DI DALAM BINGKAI PADA LINK MENU */
+        .custom-navbar .nav-item {
+            margin: 4px;
+            border: 1px solid var(--royal-blue); 
+            border-radius: 8px;
+            padding: 2px; 
+        }
+
+        .custom-navbar .nav-link {
+            color: #e2e8f0 !important;
+            border: 1px solid rgba(0, 180, 216, 0.4); 
+            padding: 6px 14px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover {
+            color: #fff !important;
+            background-color: rgba(13, 110, 253, 0.2); 
+            border-color: #fff; 
+            box-shadow: 0 0 8px rgba(0, 180, 216, 0.6);
+        }
+
+        /* Bingkai Di Dalam Bingkai untuk Brand/Nama */
+        .navbar-brand-outer {
+            border: 2px solid var(--royal-blue);
+            padding: 2px;
+            border-radius: 10px;
+        }
+        .navbar-brand-box {
+            border: 1px solid var(--neon-blue);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        /* =======================================================
+           2. BINGKAI BESAR PAS DENGAN TINGGI HALAMAN (100VH)
+           ======================================================= */
+        .page-section {
+            min-height: calc(100vh - 120px); /* Memastikan kontainer luar pas satu layar dikurangi space navbar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Container utama pembentuk Double Border yang pas dengan halaman */
+        .section-double-border {
+            width: 100%;
+            min-height: calc(100vh - 160px); /* Menyesuaikan tinggi bingkai dalam agar full halaman */
+            background-color: var(--baby-blue);
+            display: flex;
+            align-items: center; /* Membuat isi konten otomatis di tengah vertikal */
+            
+            /* Bingkai Luar Lapisan Utama */
+            border: 4px solid var(--royal-blue); 
+            border-radius: 20px;
+            padding: 40px;
+            
+            /* Bingkai Dalam Lapisan Kedua */
+            box-shadow: 
+                inset 0 0 0 4px var(--baby-blue), 
+                inset 0 0 0 6px var(--neon-blue),
+                0 6px 20px rgba(13, 110, 253, 0.08);
+        }
+
+        /* Modifikasi gambar internal agar proporsional di dalam bingkai besar */
+        .content-img {
+            border: 2px solid var(--royal-blue);
+            border-radius: 12px;
+            max-height: 260px;
+            object-fit: cover;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Kustomisasi Khusus untuk 3 Space Foto Tambahan di Bagian About */
+        .sub-img {
+            border: 2px solid var(--neon-blue);
+            border-radius: 8px;
+            height: 85px;
+            object-fit: cover;
+            width: 100%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .sub-img:hover {
+            transform: scale(1.05);
+            border-color: var(--royal-blue);
+        }
+
+        /* Kustomisasi Kontak Card */
+        .custom-card {
+            background-color: rgba(255, 255, 255, 0.6); 
+            border: 1px solid rgba(13, 110, 253, 0.3) !important;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+        <div class="container">
+            <div class="navbar-brand-outer">
+                <div class="navbar-brand-box">
+                    <a class="navbar-brand fw-bold m-0 text-white" href="#">Baiq Suji Fatia Sari</a>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 2px solid var(--neon-blue);">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#profil"><i class="bi bi-person-fill me-1"></i> Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle-fill me-1"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#album"><i class="bi bi-collection-fill me-1"></i> Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak"><i class="bi bi-envelope-fill me-1"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="profil" class="page-section">
+        <div class="container section-double-border">
+            <div class="row align-items-center g-4 w-100 m-0">
+                <div class="col-md-5 text-center">
+                    <img src="foto sendiri.jpeg" alt="Foto Saya" class="content-img">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="fw-bold mb-4 text-primary">Profil</h2>
+                    <h3 class="fs-4 fw-bold mb-3 text-dark">Halo... Nama saya Baiq Suji Fatia Sari</h3>
+                    <p class="text-secondary fs-5">Saya adalah mahasiswa aktif di Universitas Hamzanwadi yang memiliki dedikasi dan minat tinggi dalam mengintegrasikan teknologi ke dalam dunia pendidikan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-section">
+        <div class="container section-double-border">
+            <div class="row align-items-center g-4 w-100 m-0">
+                <div class="col-md-5 order-md-2 text-center">
+                    <img src="pantai.jpeg" alt="Foto Teman Kelas" class="content-img mb-3">
+                    
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img src="makrab.jpeg" alt="Foto Tambahan 1" class="sub-img">
+                        </div>
+                        <div class="col-4">
+                            <img src="cewe.jpeg" alt="Foto Tambahan 2" class="sub-img">
+                        </div>
+                        <div class="col-4">
+                            <img src="batik bareng.jpeg" alt="Foto Tambahan 3" class="sub-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 order-md-1">
+                    <h2 class="fw-bold mb-4 text-primary">About</h2>
+                    <h3 class="lead text-dark fw-bold fs-4 mb-3">Hallo......</h3>
+                    <p class="text-secondary">Perkenalkan, saya Baiq Suji Fatia Sari, mahasiswa Pendidikan Informatika yang memiliki ketertarikan pada teknologi, pengembangan website, dan media pembelajaran digital. Selain aktif mengembangkan kemampuan di bidang informatika, saya juga senang mengikuti berbagai kegiatan organisasi, sosial, dan mengeksplorasi tempat-tempat baru. Website ini saya buat sebagai media untuk memperkenalkan diri, berbagi pengalaman, dan menampilkan proyek yang telah saya kerjakan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="album" class="page-section">
+        <div class="container section-double-border d-block">
+            <h2 class="fw-bold text-primary mb-5 text-center">Proyek</h2>
+            
+            <div class="row g-4 w-100 m-0">
+                
+                <div class="col-lg-6">
+                    <div class="p-4 h-100 rounded" style="background-color: rgba(255, 255, 255, 0.4); border: 1px dashed rgba(13, 110, 253, 0.2);">
+                        <div class="row align-items-center g-3">
+                            <div class="col-sm-5 text-center">
+                                <img src="besaran satua awal.jpeg" alt="Foto Proyek Kuis" class="content-img">
+                            </div>
+                            <div class="col-sm-7">
+                                <h3 class="fw-bold text-dark fs-5 mb-2">Media Pembelajaran digital</h3>
+                                <p class="text-secondary small mb-0" style="text-align: justify;">
+                                    Aplikasi FisikaKu merupakan salah satu proyek yang saya kembangkan sebagai bentuk kontribusi dalam dunia pendidikan. Proyek ini dibuat untuk menyediakan materi fisika yang mudah diakses, dipahami, dan dipelajari kapan saja.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="p-4 h-100 rounded" style="background-color: rgba(255, 255, 255, 0.4); border: 1px dashed rgba(13, 110, 253, 0.2);">
+                        <div class="row align-items-center g-3">
+                            <div class="col-sm-5 text-center">
+                                <img src="pinjam edit.jpeg" alt="Foto Sistem Perpustakaan" class="content-img">
+                            </div>
+                            <div class="col-sm-7">
+                                <h3 class="fw-bold text-dark fs-5 mb-2">Sistem Informasi Perpustakaan</h3>
+                                <p class="text-secondary small mb-0" style="text-align: justify;">
+                                    Data Pinjaman Buku merupakan proyek yang saya kembangkan untuk mempermudah pengelolaan data peminjaman dan pengembalian buku. Melalui sistem ini, data anggota, buku, serta riwayat peminjaman dapat dikelola dengan lebih rapi, cepat, dan efisien. Selain itu, proyek ini juga menjadi sarana untuk mengembangkan kemampuan saya dalam pembuatan aplikasi web dan pengelolaan basis data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="page-section">
+        <div class="container section-double-border d-block py-5">
+            <h2 class="fw-bold text-center mb-5 text-primary">Kontak</h2>
+            <div class="row justify-content-center g-4 text-center">
+                
+                <div class="col-md-4">
+                    <div class="p-4 rounded shadow h-100 custom-card">
+                        <div class="mb-3 text-primary">
+                            <i class="bi bi-envelope-fill fs-2"></i>
+                        </div>
+                        <h5 class="fw-bold">Email</h5>
+                        <p class="text-muted small">baiqsuji@gmail.com</p>
+                        <a href="mailto:baiqsuji@gmail.com" class="btn btn-sm btn-primary w-100 mt-2">Kirim Pesan</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-4 rounded shadow h-100 custom-card">
+                        <div class="mb-3 text-primary">
+                            <i class="bi bi-instagram fs-2"></i>
+                        </div>
+                        <h5 class="fw-bold">Instagram</h5>
+                        <p class="text-muted small">@baiqsuji_</p>
+                        <a href="https://instagram.com/baiqsuji_" target="_blank" class="btn btn-sm btn-primary w-100 mt-2">Kunjungi Profil</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-4 rounded shadow h-100 custom-card">
+                        <div class="mb-3 text-primary">
+                            <i class="bi bi-telephone-fill fs-2"></i>
+                        </div>
+                        <h5 class="fw-bold">Telpon</h5>
+                        <p class="text-muted small">+62 812-3456-7890</p>
+                        <a href="tel:+6281234567890" class="btn btn-sm btn-primary w-100 mt-2">Hubungi Sekarang</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-white text-center py-4" style="background-color: #0f172a; border-top: 3px solid var(--royal-blue); border-radius: 14px 14px 0 0;">
+        <div class="container">
+            <p class="mb-0 small" style="color: #94a3b8;">&copy; 2026 Baiq Suji Fatia Sari.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
